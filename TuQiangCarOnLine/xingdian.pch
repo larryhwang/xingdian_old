@@ -1,0 +1,60 @@
+//
+// Prefix header for all source files of the 'NewGps2012' target in the 'NewGps2012' project
+//
+
+#import <Availability.h>
+
+#import "AFNetworking.h"
+#import "JSONKit.h"
+
+#ifndef __IPHONE_4_0
+#warning "This project uses features only available in iOS SDK 4.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+#endif
+
+#define isRetina ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 960), [[UIScreen mainScreen] currentMode].size) : NO)
+#define iPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
+#define isPad (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+
+#define NavigationBar_HEIGHT 44
+#define TabBar_HEIGHT 49
+#define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
+#define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
+#define VIEW_WIDTH (self.view.frame.size.width)
+#define VIEW_HEIGHT (self.view.frame.size.height)
+#define IOS_VERSION [[[UIDevice currentDevice] systemVersion] floatValue]
+#define CurrentLanguage ([[NSLocale preferredLanguages] objectAtIndex:0])
+
+#define BACKGROUND_COLOR [UIColor colorWithRed:225.0/255.0 green:225.0/255.0 blue:225.0/255.0 alpha:1.0]
+#define RGBCOLOR(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
+#define USER_DEFAULT [NSUserDefaults standardUserDefaults]
+#define LOADIMAGE(file,ext) [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:file ofType:ext]]
+
+#define MyLocal(x, ...) NSLocalizedString(x, nil)
+
+//# global-ignores = *.o *.lo *.la *.al .libs *.so *.so.[0-9]* *.a *.pyc *.pyo
+//#   *.rej *~ #*# .#* .*.swp .DS_Store
+
+#define mycolor [UIColor colorWithRed:0/255.0 green:165/255.0 blue:245/255.0 alpha:1]
+
+//iOS6 适配 iOS7
+#define IOS7 if([[[[UIDevice currentDevice] systemVersion] substringToIndex:1] intValue]>=7){self.extendedLayoutIncludesOpaqueBars = NO;self.modalPresentationCapturesStatusBarAppearance =NO;self.edgesForExtendedLayout = UIRectEdgeNone;}
+
+//判断硬件系统是不是iOS7
+#define BYT_IOS7 (([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0 )?YES:NO)
+
+//判断设备是不是iPhone5
+#define BYT_ISIPHONE5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
+
+#define VERSION [[[UIDevice currentDevice] systemVersion] floatValue]
+
+#if DEBUG
+#warning NSLogs will be shown
+#else
+#define NSLog(...) {}
+#endif
+

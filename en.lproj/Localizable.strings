@@ -1,0 +1,399 @@
+/*
+ Localizable.strings
+ NewGPSTR
+ 
+ Created by TR on 13-5-6.
+ Copyright (c) 2013年 thinkrace. All rights reserved.*/
+"\n定位方式:卫星定位" = "\nPositioning way: GPS";
+"账户名/车牌号/IMEI号" = "Account/IMEI/License Plate Number";
+"登录密码" = "password";
+"\n定位方式:LBS" = "\nPositioning way:LBS";
+"\n电量:%@" ="\nPower:%@";
+"我要试用" =  "I want to try";
+"登录" = "Log in";
+"熄火电压:" = "Flameout voltage:";
+"检测时间:" = "Detection time:";
+"点火电压:" = "Ignition voltage:";
+"延时设防时间:" = "Delay fortification Time:";
+"秒" = "second";
+"您输入的密码错误" = "incorrect password";
+"报警延时:" = "Alarm delay:";
+"请输入3到20位号码" = "Please enter 3-20 Number";
+
+"输入的电压范围有误" = "Wrong voltage range";
+"熄火电压大于点火电压" = "Flameout ignition voltage is greater than the voltage";
+"输入的时间范围有误" = "Wrong time";
+"输入的检测时间范围有误" = "Wrong time";
+"输入的报警延时范围有误" = "Wrong time";
+"输入的报警间隔范围有误" = "Wrong time";
+
+
+"恢复默认值" = "Restore Defaults";
+
+
+
+"V    (默认电压13.2V)" = "V    (Default voltage 13.2V)";
+"V    (默认电压13.5V)" = "V    (Default voltage 13.5V)";
+
+
+"震动灵敏度设置" = "Shock sensitivity settings";
+"切断电源" = "Cut off the power";
+"恢复电源" = "Restore power";
+"震动灵敏度一(最高)" = "Vibration sensitivity one(highest)";
+"震动灵敏度二" = "Vibration sensitivity two ";
+"震动灵敏度三" = "Vibration sensitivity three";
+"震动灵敏度四(最低)" = "Vibration sensitivity four (lowest)";
+"ACC电压设置" = "ACC voltage setting";
+"请选择震动灵敏度等级" = "Please select vibration sensitivity level";
+"您确定要发送重启设备指令吗?" = "Are you sure send it to the device?";
+"请输入密码" = "Please enter your password";
+"您确定下发断油电指令吗?" = "Are you sure send it to the device?";
+"断油电" = "Off oil and electricity";
+"恢复油电" = "Restore oil and electricity";
+"查询参数" = "Query parameters";
+"余额查询" = "Balance inquiry";
+"请选择移动卡或联通卡" = "Please select mobile or unicom card";
+"联通" = "Unicom";
+"移动" = "China Mobile";
+"自动设防/撤防" = "Auto Arm / Disarm";
+"手动设防/撤防" = "Manually arm / disarm";
+
+"你确定要下发远程设防/撤防指令吗？" = "Are you sure send it to the device?";
+"你确定要下发SOS号码同步指令吗？" = "Are you sure send it to the device?";
+"你确定要下发设防模式指令吗？" = "Are you sure send it to the device?";
+
+
+"您确定下发恢复油电指令吗?" = "Are you sure send it to the device?";
+"您确定下发切断电源指令吗?" = "Are you sure send it to the device?";
+"您确定下发恢复电源指令吗?" = "Are you sure send it to the device?";
+"您确定要发送查询设备参数指令吗?" = "Are you sure send it to the device?";
+"备注:请按实际车辆点火或熄火电压设置(非专业人员请勿操作)" = "NOTE: Press the actual vehicle ignition or flame voltage setting (non-professionals do not operate)";
+
+
+"上报方式" = "Reporting mode";
+"震动报警设置" = "Vibration alarm settings";
+"震动报警开关:" = "Vibration alarm switch:";
+"震动报警方式:" = "Vibration Alarm:";
+"断电报警设置" = "Setting off the alarm";
+"断电报警开关:" = "Off alarm switch:";
+"断电报警上传方式:" = "Upload off alarm mode:";
+"低电报警设置" = "Low battery alarm settings";
+"低电报警开关:" = "Low battery alarm switch:";
+"低电报警上传方式:" = "Low battery alarm uploads:";
+"位移报警开关:" = "Displacement alarm switch:";
+"位移报警上传方式:" = "Displacement alarm uploads:";
+
+
+"添加围栏" = "Add Fence";
+"修改围栏" = "Modify";
+"删除围栏" = "Remove";
+"请长按地图选择相关区域" = "Please select the relevant press area map";
+"请长按地图添加新的围栏" = "Please press the map to add a new fence";
+"名字不能为空"  = "Name can not be empty";
+"请选中要修改的围栏" = "Check to modify the fence";
+"请选中要删除的围栏" = "Check to delete fence";
+"设备不在线" = "Device is not online";
+"停留时间:%@小时%@分钟\n开始时间%@\n开始时间%@" = "Residence time:%@hour%@minutes\nStar time%@\nStarttime%@";
+"%@\n经度:%@ 纬度:%@ 速度:%@ KM/h" = "%@\nlongitude:%@ latitude:%@speed:%@ KM/h";
+"位移报警设置" = "Displacement alarm settings";
+"设置位移报警" = "Setting displacement alarm";
+"关闭位移报警" = "Close displacement alarm";
+"请填写围栏半径" = "Please fill in the fence radius";
+"半径有效距离为100~1000" = "Effective distance radius of 100 to 1000";
+
+"查询位移报警设置" = "Discover displacement alarm settings";
+"提示:半径范围100~1000米" = "Tip: radius of 100 to 1000 m";
+"您确定要发送关闭位移报警指令吗?" = "Are you sure send it to the device?";
+"您确定要发送查询位移报警设置指令吗?" = "Are you sure send it to the device?";
+
+"查询" = "Inquire";
+"录音" = "record";
+"编辑" = "edit";
+"全 选" = "select all";
+"全不选" = "Uncheck all";
+"远程聆听" = "Remote listening";
+"请选择删除的选项" = "Please select the Delete option";
+"已录音5秒" = "Recorded 5 seconds";
+"已录音10秒" = "Recorded 10 seconds";
+"录音完成" = "Recording finished";
+"录音位置" = "Recording Location";
+"SOS号码设置" = "Set SOS number";
+"添加SOS号码" = "Add SOS numbers";
+"删除SOS号码" = "Remove SOS numbers";
+"查询SOS号码" = "Query SOS numbers";
+"SOS号码一" = "SOS number 1";
+"SOS号码二" = "SOS number 2";
+"SOS号码三" = "SOS number 3";
+"SOS号码四" = "SOS number 4";
+"亲情号码设置" = "Set family number";
+"亲情号码一" = "Family number 1";
+"亲情号码二" = "Family number 2";
+"添加亲情号码" = "Add family number";
+"删除亲情号码" = "Delete family number";
+"查询亲情号码" = "Discover family number";
+"您确定要发送查询亲情号码指令吗?" = "Are you sure send it to the device?";
+
+"超速报警设置" = "Overspeed alarm settings";
+"报警开关:" = "Alarm switch:";
+"报警开关" = "Alarm switch";
+"参数设置:" = "parameter settings:";
+"报警方式:" = "Alarms type:";
+"车辆超速时间超过               秒" = "Speeding time exceeds                 seconds";
+"车辆行驶速度超过               km/h" = "Vehicle speed exceeds               km/h";
+
+
+"请输入SOS号码" = "Please enter the SOS number";
+"设备未返回数据(超时)" = "Device does not return data (time-out)";
+"设备未返回" = "Device does not return data (time-out)";
+"号码长度为3～20位" = "Number length of 3 to 20";
+"您确定要发送查询SOS号码指令吗?" = "Are you sure send it to the device?";
+"设置失败" = "Setting failure";
+"失败" = "Failure";
+
+"轨迹回放" = "Playback";
+
+"电子围栏" = "Fence";
+"持续定位" = "Continuous positioning";
+"分钟" = "minutes";
+"分" = "minutes";
+
+"请输入合法的数值" = "Please enter a valid value";
+"设备不在线" = "Device is not online";
+"设备无返回" = "Device does not return data (time-out)";
+"网络错误" = "Network Error";
+"正在GPS定位中" = "GPS positioning";
+"设备无响应" = "Device does not return data";
+"GPS定位正在打开" = "GPS positioning is open";
+
+"已设置" = "It has been set";
+"id无效" = "id is invalid";
+"操作失败" = "operation failed";
+"参数无效" = "Invalid parameter";
+"推送类型设置" = "Push type settings";
+
+"通知"  = "Notice";
+"我知道了" = "Get it";
+"用户名称" = "User name";
+"登录账号" = "Account";
+"设备SIM卡号码" = "Equipment SIM card number";
+"联系人" = "Contacts";
+"电话" = "phone";
+"提示" = "prompt";
+"带“*”号的为必填项" = "With * sign are required";
+"IMEI号不存在" = "IMEI number does not exist";
+"登陆名,密码,用户名不能为空" = "Login name, password, user name can not be empty";
+"登陆名已经存在" = "Login name already exists";
+"IMEI号已经被注册" = "IMEI number has been registered";
+"注册成功" = "registration success";
+"车辆列表" = "Vehicle List";
+"多车监控" = "Monitor";
+"车辆报警" = "Alarms";
+"关" = "close";
+"开" = "open";
+"未检测到ACC" = "Not detected ACC";
+"报警列表" = "Alarm List";
+"进电子围栏" = "Into the fence";
+"出电子围栏" = "Out off the fence";
+"进%d号电子围栏" = "Into NO.%d fence";
+"出%d号电子围栏" = "Out off NO.%d fence";
+"删除" = "delete";
+"注销" = "Logout";
+"请输入设备IMEI号码" = "Please enter the IMEI number";
+"发生错误" = "An error occurred";
+"IMEI格式无效" = "Invalid IMEI format";
+"IMEI不存在" = "IMEI does not exist";
+"成功" = "success";
+"设备未定位" = "The device is not positioned";
+"当前位置" = "current location";
+"车辆位置" = "Vehicle location";
+
+"登录名或密码为空" = "Login name or password is empty";
+"参数不对" = "Wrong parameters";
+"程序报错，异常。可能参数错误等" = "An error occurred";
+"登录名或密码错误" = "Login name or password is incorrect";
+"没有任何查询结果" = "No result";
+"网络连接异常，请稍后再试" = "Network Connection Exception";
+"确定" = "Sure";
+"数据库打开失败" = "Database open failure";
+"记住账号和密码" = "Remember";
+"登        录" = "Log in";
+"账号" = "Account";
+
+
+"车牌号或IMEI号" = "License plate number or IMEI number";
+"密码" = "password";
+"登录错误" = "Login Error";
+"获取设备列表失败" = "Failed to obtain the list of devices";
+"获取设备分组失败" = "Get device grouping failure";
+"获取设备信息失败" = "Get device information failed";
+
+"首页" = "首页";
+"地图" = "地图";
+"报警" = "报警";
+"更多" = "更多";
+
+
+"全部[%d]" = "All[%d]";
+"在线[%d]" = "Online[%d]";
+"离线[%d]" = "Offline[%d]";
+"默认组" = "Default";
+"未启用" = "Not Enabled";
+"运动" = "Move";
+"静止" = "Stop";
+"离线" = "Offline";
+"欠费" = "Arrears";
+"暂无" = "No";
+
+"状态:未启用" = "Status: Not enabled";
+"状态:运动" = "Status: Move";
+"状态:静止" = "Status: Stop";
+"状态:离线" = "Status: Offline";
+"状态:欠费" = "Status: Arrears";
+"ACC状态:关" = "ACC Status:Off";
+"ACC状态:开" = "ACC Status:On";
+"定位时间:%@" = "Positioning time:%@";
+
+
+"查找" = "Search";
+"车辆未启用" = "Vehicles not enabled";
+"车辆已欠费" = "Vehicle has arrears";
+"暂无车牌号码显示" = "No license plate number display";
+"无匹配结果" = "No matching results";
+"信息推送开关" = "Information Push switch";
+
+"输入设备名/车牌号" = "Device name/license plate number";
+"   速度:" = "   speed:";
+"   车牌:" = "License plate:";
+
+"实时监控" = "Monitoring";
+"更新时间" = "Updated";
+"实时追踪" = "Tracking";
+"历史轨迹" = "History";
+
+"设备报警" = "Alarms";
+"设备详情" = "Equipment details";
+"切换页面" = "Switch pages";
+"取消" = "cancel";
+"地址:%@" = "address:%@";
+"当天" = "Today";
+"昨天" = "yesterday";
+"自定义" = "Custom";
+"开始时间" = "Start time";
+"结束时间" = "End Time";
+"开始时间或结束时间错误" = "Start time or end time error";
+"请选择查询时间" = "Please select search time";
+"开始时间应该早于当前时间" = "Start time should be earlier than the current time";
+"开始时间应该早于结束时间" = "Start time should be earlier than the end time";
+"结束时间应该晚于开始时间" = "End Time must be after the start time";
+"从" = "From";
+"到" = "To";
+"播放结束" = "End Play";
+"没有查询结果" = "No search results";
+"设备名称" = "Device Name";
+"设备IMEI" = "IMEI";
+"有效期" = "Validity";
+"车牌号码" = "license plate number";
+"设备型号" = "Equipment Type";
+"设备手机卡号" = "Mobile Phone Card";
+"设备联系人" = "Equipment Contacts";
+
+
+"设置拔出报警" = "Set pull alarm";
+"报警类型" = "Alarm Type";
+"电子栅栏名" = "Fence name";
+"定位时间" = "Positioning time";
+"报警时间" = "Alarm time";
+"联系人电话" = "Contact Phone";
+
+"进电子栅栏" = "Into the fence";
+"出电子栅栏" = "Out off the fence";
+"低电报警" = "Low battery alarm";
+"超速报警" = "Speed alarm";
+"SOS报警" = "SOS Alarm";
+"断电报警" = "Power failure alarm";
+"震动报警" = "Vibration alarm";
+"位移报警" = "Displacement alarm";
+"离线报警" = "Offline alarm";
+"开机提醒" = "Power remind";
+"关机提醒" = "Off reminder";
+"延时设防设置" = "Set Delay fortification";
+"震动检测时间" = "Shock detection time";
+"中心号码" = "Center number";
+"中心号码:" = "Center number:";
+"设防模式" = "Arming mode";
+"远程设防/撤防" = "Remote arm / disarm";
+"重启" = "Reboot";
+"SOS号码同步" = "SOS number synchronization";
+
+"第一次定位提醒" = "First locate reminder";
+"GPS天线开路报警" = "GPS antenna open alarm";
+"GPS天线短路报警" = "GPS antenna short circuit alarm";
+"外电低电报警" = "low battery alarm";
+"外电低电保护报警" = "Low voltage protection alarm";
+"拔出报警" = "Unplug alarm";
+"换卡报警" = "Changing the card alarm";
+
+
+
+
+"疲劳驾驶" = "Driving tiredly";
+"车辆VSS故障" = "VSS vehicle breakdown";
+"车辆油量异常" = "Abnormal vehicle fuel";
+"路线偏离报警" = "Route deviation alarm";
+"非法点火" = "Illegal ignition";
+"设备故障" = "Equipment failure";
+"加载中..." = "Loading...";
+"无报警记录信息" = "No alarm recording information";
+
+
+
+"数据加载完成" = "Data loading is complete";
+"报警位置" = "Alarm position";
+"修改密码" = "Change Password";
+"使用帮助" = "Using help";
+"关于本软件" = "About the Software";
+"添加设备" = "Add Device";
+"取消添加设备" = "Cancel Add device";
+"添加" = "Add";
+"设备IMEI号" = "Device IMEI number";
+"请输入旧密码" = "Old password";
+"请输入新密码" = "New password";
+"重新输入新密码" = "Confirm password";
+"两次输入新密码不一致" = "The new password twice inconsistent";
+"修改密码成功" = "Success";
+"修改密码失败" = "Change password failed";
+
+"更多内容，请关注后续版本" = "More details, please pay attention to the follow-up version";
+"我的服务商" = "My service provider";
+"服务商:" = "Service Provider:";
+"联系人:" = "Contact:";
+"电    话:" = "phone  :";
+"地    址:" = "address  :";
+
+"通知中心" ="Notification Center";
+"接收新消息通知" = "Receiving  message notification";
+"声音" = "sound";
+"夜间免打扰" = "Night DND";
+
+
+
+"版本号 %@\n本版本适用于ios6.0及以上系统，软件的下载和使用过程中会产生GPRS流量费，该费用由运营商收取。" = "version number %@\nThis edition applies to ios6.0 and above systems，Download and use the software will generate GPRS traffic charges，The fee charged by the operator.";
+
+"故障码" = "Fault code";
+"出现时间" = "Emergence time";
+"清除时间" = "Clearance time";
+"故障描述" = "Fault description";
+
+"新用户注册" = "Register";
+"注册" = "Register";
+"扫扫分享" = "扫扫分享";
+"平台" = "platform";
+"平台报警" = "Platform alarm";
+"请输入超速时间和行驶速度" = "Please enter the speeding time and travel speed";
+"平台报警+短信报警" = "Platform + SMS alarm";
+"短信报警+平台报警" = "SMS +Platform alarm";
+"平台+短信+电话" = "platform + SMS + phone";
+"平台+短信" = "platform + SMS";
+"短信+平台+电话报警" = "platform + SMS + phone alarm";
+"平台报警+短信报警+电话报警" = "platform + SMS + phone alarm";
+
