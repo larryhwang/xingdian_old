@@ -54,7 +54,7 @@
     if (BYT_IOS7) {
         homeNav.navigationBar.barTintColor = mycolor;
         homeNav.navigationBar.translucent = NO;
-        homeNav.tabBarItem = [[UITabBarItem alloc]initWithTitle:MyLocal(@"车辆列表") image:[[UIImage imageNamed:@"home.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[[UIImage imageNamed:@"home.png"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+        homeNav.tabBarItem = [[UITabBarItem alloc]initWithTitle:MyLocal(@"车辆列表") image:[[UIImage imageNamed:@"ic_car.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[[UIImage imageNamed:@"ic_car.png"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     }else{
         [homeNav.navigationBar setBackgroundImage:[[self createImageWithColor:mycolor] scaleToSize:CGSizeMake(320, 44)] forBarMetrics:UIBarMetricsDefault];
         homeNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:MyLocal(@"车辆列表") image:[UIImage imageNamed:@"home.png"] tag:0];
@@ -68,7 +68,7 @@
     if (BYT_IOS7) {
         mapNav.navigationBar.barTintColor = mycolor;
         mapNav.navigationBar.translucent = NO;
-        mapNav.tabBarItem = [[UITabBarItem alloc]initWithTitle:MyLocal(@"多车监控") image:[[UIImage imageNamed:@"map.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[[UIImage imageNamed:@"map.png"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+        mapNav.tabBarItem = [[UITabBarItem alloc]initWithTitle:MyLocal(@"多车监控") image:[[UIImage imageNamed:@"ic_morecar.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[[UIImage imageNamed:@"ic_morecar.png"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     }else{
         [mapNav.navigationBar setBackgroundImage:[[self createImageWithColor:mycolor] scaleToSize:CGSizeMake(320, 44)] forBarMetrics:UIBarMetricsDefault];
         mapNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:MyLocal(@"多车监控") image:[UIImage imageNamed:@"map.png"] tag:1];
@@ -83,7 +83,7 @@
     if (BYT_IOS7) {
         allAlarmsNav.navigationBar.barTintColor = mycolor;
         allAlarmsNav.navigationBar.translucent = NO;
-        allAlarmsNav.tabBarItem = [[UITabBarItem alloc]initWithTitle:MyLocal(@"车辆报警") image:[[UIImage imageNamed:@"alerm"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[[UIImage imageNamed:@"alerm"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+        allAlarmsNav.tabBarItem = [[UITabBarItem alloc]initWithTitle:MyLocal(@"车辆报警") image:[[UIImage imageNamed:@"ic_warm.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[[UIImage imageNamed:@"ic_warm.png"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     }else{
         [allAlarmsNav.navigationBar setBackgroundImage:[[self createImageWithColor:mycolor] scaleToSize:CGSizeMake(320, 44)] forBarMetrics:UIBarMetricsDefault];
         allAlarmsNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:MyLocal(@"车辆报警") image:[UIImage imageNamed:@"warn.png"] tag:2];
