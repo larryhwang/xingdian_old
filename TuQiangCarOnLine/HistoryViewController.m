@@ -26,7 +26,7 @@
 @interface HistoryViewController (){
     //日期
     UILabel *dateLabel;
-//    UISlider *slider;
+    UIProgressView *processStatus;
     NSTimeInterval speed;
 }
 @property (strong, nonatomic) NSString *annoStartTime;
@@ -36,6 +36,7 @@
 @property (strong, nonatomic) CustomAnnotation *currentAnnotation;
 @property (strong, nonatomic)  UIButton *changePlayButton;
 @property (strong, nonatomic)  UIButton *changePlayButton2;
+@property (strong, nonatomic)  UIButton *changePlayButton3;
 
 @end
 
@@ -71,7 +72,7 @@ NSInteger currentIndex = 1;// 显示轨迹点数组中的某个轨迹点
     
     //切换播放和暂停
    _changePlayButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    _changePlayButton.frame = CGRectMake(0, 0, 33,25);
+    _changePlayButton.frame = CGRectMake(0, 0, 30,25);
     [_changePlayButton setBackgroundImage:[UIImage imageNamed:@"cv-4.png"] forState:UIControlStateNormal];
     _changePlayButton.tag = 1001;
     [_changePlayButton setBackgroundImage:[UIImage imageNamed:@"cv-1.png"] forState:UIControlStateSelected];
@@ -81,13 +82,22 @@ NSInteger currentIndex = 1;// 显示轨迹点数组中的某个轨迹点
     
     //变速按钮
     _changePlayButton2 = [UIButton buttonWithType:UIButtonTypeCustom];
-    _changePlayButton2.frame = CGRectMake(0, 0, 33,25);
+    _changePlayButton2.frame = CGRectMake(0, 0, 30,25);
     [_changePlayButton2 setBackgroundImage:[self createImageWithColor:[UIColor redColor]] forState:UIControlStateNormal];
     _changePlayButton2.tag = 1002;
     [_changePlayButton2 setBackgroundImage:[UIImage imageNamed:@"cv-1.png"] forState:UIControlStateSelected];
     [_changePlayButton2 addTarget:self action:@selector(slow) forControlEvents:UIControlEventTouchUpInside];
     
-    self.navigationItem.rightBarButtonItems = @[[[UIBarButtonItem alloc] initWithCustomView:_changePlayButton],[[UIBarButtonItem alloc]initWithCustomView:_changePlayButton2]];
+    
+    
+    //变速按钮
+    _changePlayButton3 = [UIButton buttonWithType:UIButtonTypeCustom];
+    _changePlayButton3.frame = CGRectMake(0, 0, 30,25);
+    [_changePlayButton3 setBackgroundImage:[self createImageWithColor:[UIColor redColor]] forState:UIControlStateNormal];
+    _changePlayButton2.tag = 1002;
+    [_changePlayButton3 setBackgroundImage:[UIImage imageNamed:@"cv-1.png"] forState:UIControlStateSelected];
+    
+    self.navigationItem.rightBarButtonItems = @[[[UIBarButtonItem alloc] initWithCustomView:_changePlayButton],[[UIBarButtonItem alloc]initWithCustomView:_changePlayButton2],[[UIBarButtonItem alloc] initWithCustomView:_changePlayButton3]];
 
     
 //    //view2
@@ -145,11 +155,26 @@ NSInteger currentIndex = 1;// 显示轨迹点数组中的某个轨迹点
     [self.view addSubview:_historyMap];
     
     //---------
-    dateLabel = [[UILabel alloc]initWithFrame:CGRectMake(4,0, VIEW_WIDTH -8, 30)];
-    dateLabel.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.7];
+    dateLabel = [[UILabel alloc]initWithFrame:CGRectMake(0,0, VIEW_WIDTH, 30)];
+    processStatus = [[UIProgressView alloc]initWithFrame:CGRectMake(0, 30, VIEW_WIDTH, 2)];
+    
+//    progressTintColor  NS_AVAILABLE_IOS(5_0) UI_APPEARANCE_SELECTOR;
+//    @property(nonatomic, strong, nullable) UIColor* trackTintColor
+    
+    processStatus.trackTintColor = [[UIColor lightGrayColor] colorWithAlphaComponent:.8];
+    processStatus.transform = CGAffineTransformMakeScale(1.0f,2.0f);
+    processStatus.progressTintColor = [[UIColor purpleColor] colorWithAlphaComponent:.8];
+    processStatus.progress = .11 ;
+    
+
+    
+    
+    
+    dateLabel.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.8];
     dateLabel.font = [UIFont systemFontOfSize:13.0];
     dateLabel.numberOfLines = 0;
     [self.view addSubview:dateLabel];
+    [self.view addSubview:processStatus];
     
 //    UIButton *changeMapTypeButton = [UIButton buttonWithType:UIButtonTypeCustom];
 //    changeMapTypeButton.frame = CGRectMake(0, 60, 26, 26);
@@ -220,7 +245,12 @@ NSInteger currentIndex = 1;// 显示轨迹点数组中的某个轨迹点
 // 向地图上添加位置和路线
 - (void)loadRoute
 {
-    NSLog(@"添加");
+ //   NSLog(@"添加:%f",(currentIndex++)/(_historyStates.count));
+    
+    
+    
+//  [processStatus setProgress:(currentIndex++/_historyStates.count) animated:YES];
+    
     // 当已经画出一半路线点时请求更多路线点
     if (currentIndex == roundf(_historyStates.count/2)) {
         [self getHistory];
@@ -230,6 +260,9 @@ NSInteger currentIndex = 1;// 显示轨迹点数组中的某个轨迹点
     CLLocationCoordinate2D *pointArray = malloc(sizeof(CLLocationCoordinate2D) * currentIndex);
     // 每次for循环获得起始点到当前显示点之间的所有轨迹点的经纬度，保存在pointArr中
     for (int i = 0; i < currentIndex; i++) {// 获得起始点和当前显示点之间的一系列轨迹点
+        
+        
+  
         DeviceHistoryState *aHistoryState = _historyStates[i];
         CLLocationDegrees latitude  = [aHistoryState.latitude doubleValue];
         CLLocationDegrees longitude = [aHistoryState.longitude doubleValue];
@@ -287,7 +320,7 @@ NSInteger currentIndex = 1;// 显示轨迹点数组中的某个轨迹点
             _currentAnnotation.annotationID = @"NO";
 //            dateLabel.text = [NSString stringWithFormat:MyLocal(@"%@\n经度:%@ 纬度:%@ 速度:%@ KM/h"),aHistoryState.date,aHistoryState.longitude,aHistoryState.latitude,aHistoryState.speed];
 
-            dateLabel.text = [NSString stringWithFormat:MyLocal(@"%@      速度:%@ KM/h"),aHistoryState.date,aHistoryState.speed];
+            dateLabel.text = [NSString stringWithFormat:MyLocal(@" %@      速度:%@ KM/h"),aHistoryState.date,aHistoryState.speed];
 
             _currentAnnotation.imageName = @"mark2.png";
 //            [_historyMap removeAnnotations:_historyMap.annotations];
@@ -310,7 +343,12 @@ NSInteger currentIndex = 1;// 显示轨迹点数组中的某个轨迹点
         _stopButton.selected = NO;
     }
 //    slider.value++;
-    currentIndex++;// 下次画线时点的数量加1
+    currentIndex++; // 下次画线时点的数量加1
+    
+    [processStatus setProgress:(currentIndex*1.0 /(_historyStates.count * 1.0)) animated:YES];
+    NSLog(@"B:%d",_historyStates.count);
+    NSLog(@"C:%d",currentIndex);
+     NSLog(@"AA:%f",(currentIndex*1.0 /(_historyStates.count * 1.0)) );
 }
 
 #pragma mark - Targeta
@@ -558,7 +596,6 @@ NSInteger currentIndex = 1;// 显示轨迹点数组中的某个轨迹点
 -(void)slow {
     NSLog(@"jiansu");
     speed = .1;
-//    [self.historyTimer setValue:(NSTimeInterval).1 forKey:@"timeInterval"];
     [self prepareForLoadRoute];
     NSLog(@"改后:%f",self.historyTimer.timeInterval);
 }

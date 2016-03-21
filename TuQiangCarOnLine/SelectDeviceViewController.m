@@ -4,7 +4,7 @@
 //
 //  Created by TR on 13-9-26.
 //  Copyright (c) 2013年 thinkrace. All rights reserved.
-//
+//  本页面首页点击单个车辆
 
 #import "SelectDeviceViewController.h"
 #import <QuartzCore/QuartzCore.h>
@@ -67,9 +67,11 @@
 //        [_rightButton addTarget:self action:@selector(issuesOrders) forControlEvents:UIControlEventTouchUpInside];
 //        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:_rightButton];
 //    }
+
     
     [self.tabBar setBackgroundImage:[[UIImage imageNamed:@"b"] scaleToSize:CGSizeMake(320, 49)]];// 设置tabBar背景
-    self.tabBar.selectionIndicatorImage = [[UIImage imageNamed:@"7-1.png"] scaleToSize:CGSizeMake(76, 45)];// 设置tabBarItem选中的背景
+    self.tabBar.selectionIndicatorImage = [[UIImage imageNamed:@"7-1.png"] scaleToSize:CGSizeMake(76, 49)];// 设置tabBarItem选中的背景
+ //   self.tabBar.selectionIndicatorImage = [[self createImageWithColor:mycolor]  scaleToSize:CGSizeMake(76, 48)];// 设置tabBarItem选中的背景
     
     // 实时追踪
 	TrackingViewController *trackingView = [[TrackingViewController alloc] init];

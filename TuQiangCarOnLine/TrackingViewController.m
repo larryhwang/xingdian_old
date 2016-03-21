@@ -91,7 +91,7 @@
     }
     
     //顶部导航栏的地址
-    self.address = [[UILabel alloc] initWithFrame:CGRectMake(6, 0, VIEW_WIDTH-12 , 35)];
+    self.address = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, VIEW_WIDTH , 35)];
     self.address.lineBreakMode = NSLineBreakByCharWrapping;
     self.address.numberOfLines = 0;
     self.address.baselineAdjustment = UIBaselineAdjustmentAlignBaselines;
@@ -672,7 +672,7 @@
                 }
             }
         } else if ([theWebService tag] == WebServiceTag_GetAddress) {
-            self.address.text = [theWebService soapResults];
+            self.address.text =[NSString stringWithFormat:@" %@",[theWebService soapResults]];
             
             if (!_isShowHumanLocation) {
                 [self performSelectorOnMainThread:@selector(showAnnotation) withObject:nil waitUntilDone:NO];
