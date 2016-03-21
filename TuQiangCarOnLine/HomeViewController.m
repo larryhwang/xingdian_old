@@ -70,20 +70,25 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     
-    UIButton *leftButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 28)];
+    //右/搜索按钮
+    UIButton *leftButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 38.5, 28)];
     [leftButton setBackgroundImage:[UIImage imageNamed:@"5.png"] forState:UIControlStateNormal];
     [leftButton addTarget:self action:@selector(search) forControlEvents:UIControlEventTouchUpInside];
     
     
-    
+    //左/更多按钮
     UIButton *more = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 30, 22)];
     [more setBackgroundImage:[UIImage imageNamed:@"menu"] forState:UIControlStateNormal];
     [more addTarget:self action:@selector(showMoreVC) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:more];
     
-    self.rightButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 28)];
+    //右/刷新按钮
+    self.rightButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 38.5, 28)];
     [_rightButton setBackgroundImage:[UIImage imageNamed:@"6.png"] forState:UIControlStateNormal];
     [_rightButton addTarget:self action:@selector(refreshAction:) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    
     self.navigationItem.rightBarButtonItems = @[[[UIBarButtonItem alloc] initWithCustomView:_rightButton],[[UIBarButtonItem alloc]initWithCustomView:leftButton]];
     
     UIView *view2 = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 44)];

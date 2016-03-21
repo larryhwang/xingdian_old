@@ -65,7 +65,7 @@ NSInteger currentIndex = 1;// 显示轨迹点数组中的某个轨迹点
     
     //切换播放和暂停
    _changePlayButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    _changePlayButton.frame = CGRectMake(0, 0, 47,36);
+    _changePlayButton.frame = CGRectMake(0, 0, 33,25);
     [_changePlayButton setBackgroundImage:[UIImage imageNamed:@"cv-4.png"] forState:UIControlStateNormal];
     _changePlayButton.tag = 1001;
     [_changePlayButton setBackgroundImage:[UIImage imageNamed:@"cv-1.png"] forState:UIControlStateSelected];
@@ -127,7 +127,7 @@ NSInteger currentIndex = 1;// 显示轨迹点数组中的某个轨迹点
     [self.view addSubview:_historyMap];
     
     //---------
-    dateLabel = [[UILabel alloc]initWithFrame:CGRectMake(0,0, 320, 40)];
+    dateLabel = [[UILabel alloc]initWithFrame:CGRectMake(4,0, VIEW_WIDTH -8, 30)];
     dateLabel.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.7];
     dateLabel.font = [UIFont systemFontOfSize:13.0];
     dateLabel.numberOfLines = 0;
@@ -196,6 +196,8 @@ NSInteger currentIndex = 1;// 显示轨迹点数组中的某个轨迹点
     [webService getWebServiceResult:@"GetDevicesHistoryResult"];
 }
 
+
+
 // 向地图上添加位置和路线
 - (void)loadRoute
 {
@@ -263,7 +265,10 @@ NSInteger currentIndex = 1;// 显示轨迹点数组中的某个轨迹点
             
             self.currentAnnotation = [[CustomAnnotation alloc] initWithCoordinate:coordinate];
             _currentAnnotation.annotationID = @"NO";
-            dateLabel.text = [NSString stringWithFormat:MyLocal(@"%@\n经度:%@ 纬度:%@ 速度:%@ KM/h"),aHistoryState.date,aHistoryState.longitude,aHistoryState.latitude,aHistoryState.speed];
+//            dateLabel.text = [NSString stringWithFormat:MyLocal(@"%@\n经度:%@ 纬度:%@ 速度:%@ KM/h"),aHistoryState.date,aHistoryState.longitude,aHistoryState.latitude,aHistoryState.speed];
+
+            dateLabel.text = [NSString stringWithFormat:MyLocal(@"%@  速度:%@ KM/h"),aHistoryState.date,aHistoryState.speed];
+
             _currentAnnotation.imageName = @"mark2.png";
 //            [_historyMap removeAnnotations:_historyMap.annotations];
             [_historyMap addAnnotation:_currentAnnotation];

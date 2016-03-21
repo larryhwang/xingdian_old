@@ -56,18 +56,12 @@
     
     // 首页
     HomeViewController *home = [[HomeViewController alloc] init];
-
-
-    
-    
-    
     UINavigationController *homeNav = [[UINavigationController alloc] initWithRootViewController:home];
+  //  homeNav.navigationItem.rightBarButtonItem
     
     if (BYT_IOS7) {
         homeNav.navigationBar.barTintColor = mycolor;
         homeNav.navigationBar.translucent = NO;
-
-                         
         homeNav.tabBarItem = [[UITabBarItem alloc]initWithTitle:MyLocal(@"车辆列表") image:[[UIImage imageNamed:@"ic_car.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[[UIImage imageNamed:@"ic_car.png"]imageWithRenderingMode:UIImageRenderingModeAutomatic]];
 
         
@@ -141,7 +135,6 @@
     
     [self.view addSubview:_tabbarController.view];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeView:) name:@"Tiaozhuan" object:nil];
-
     [self.tabbarController.tabBar     setTintColor:[UIColor whiteColor]];
 }
 

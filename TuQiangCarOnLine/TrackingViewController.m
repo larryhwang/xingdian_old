@@ -6,6 +6,8 @@
 //  Copyright (c) 2013年 thinkrace. All rights reserved.
 //
 
+//本页面用于描述实时追踪
+
 #import "TrackingViewController.h"
 #import "WebServiceParameter.h"
 #import "SBJson.h"
@@ -61,7 +63,9 @@
 {
     [super viewDidLoad];
     
-    IOS7;
+    [[UITabBarItem appearance] setTitleTextAttributes:@{UITextAttributeTextColor:mycolor} forState:UIControlStateSelected];
+    
+
     
     self.view.backgroundColor = [UIColor whiteColor];
     
@@ -86,13 +90,14 @@
 //        [_locationManager requestWhenInUseAuthorization];//使用期间//or
     }
     
-    self.address = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, VIEW_WIDTH, 40)];
+    //顶部导航栏的地址
+    self.address = [[UILabel alloc] initWithFrame:CGRectMake(6, 0, VIEW_WIDTH-12 , 35)];
     self.address.lineBreakMode = NSLineBreakByCharWrapping;
     self.address.numberOfLines = 0;
     self.address.baselineAdjustment = UIBaselineAdjustmentAlignBaselines;
     self.address.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.5];
     self.address.textColor = [UIColor blackColor];
-    self.address.font = [UIFont systemFontOfSize:14.0];
+    self.address.font = [UIFont systemFontOfSize:12.0];
     [self.view addSubview:_address];
     
     //切换地图类型
