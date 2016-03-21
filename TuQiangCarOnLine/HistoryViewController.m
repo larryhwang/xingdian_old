@@ -14,7 +14,9 @@
 #import "CustomAnnotationView.h"
 
 #define KLine_Width 5
-#define KInterval   .5
+#define KInterval   .5  //
+
+
 #define KSpace @"   "
 #define KSpeedPrefix  MyLocal(@"   速度:")
 #define KSpeedSuffix  @"KM/H"
@@ -25,6 +27,7 @@
     //日期
     UILabel *dateLabel;
 //    UISlider *slider;
+    NSTimeInterval speed;
 }
 @property (strong, nonatomic) NSString *annoStartTime;
 @property (assign, nonatomic) CLLocationCoordinate2D annoCoordinate;
@@ -32,6 +35,8 @@
 @property (assign, nonatomic) NSInteger isStopEndId;
 @property (strong, nonatomic) CustomAnnotation *currentAnnotation;
 @property (strong, nonatomic)  UIButton *changePlayButton;
+@property (strong, nonatomic)  UIButton *changePlayButton2;
+
 @end
 
 @implementation HistoryViewController
@@ -53,6 +58,7 @@ NSInteger currentIndex = 1;// 显示轨迹点数组中的某个轨迹点
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    speed = 2;
     
     IOS7;
     
@@ -70,7 +76,19 @@ NSInteger currentIndex = 1;// 显示轨迹点数组中的某个轨迹点
     _changePlayButton.tag = 1001;
     [_changePlayButton setBackgroundImage:[UIImage imageNamed:@"cv-1.png"] forState:UIControlStateSelected];
     [_changePlayButton addTarget:self action:@selector(changePlayButton:) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:_changePlayButton];
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:_changePlayButton];
+    
+    
+    //变速按钮
+    _changePlayButton2 = [UIButton buttonWithType:UIButtonTypeCustom];
+    _changePlayButton2.frame = CGRectMake(0, 0, 33,25);
+    [_changePlayButton2 setBackgroundImage:[self createImageWithColor:[UIColor redColor]] forState:UIControlStateNormal];
+    _changePlayButton2.tag = 1002;
+    [_changePlayButton2 setBackgroundImage:[UIImage imageNamed:@"cv-1.png"] forState:UIControlStateSelected];
+    [_changePlayButton2 addTarget:self action:@selector(slow) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.navigationItem.rightBarButtonItems = @[[[UIBarButtonItem alloc] initWithCustomView:_changePlayButton],[[UIBarButtonItem alloc]initWithCustomView:_changePlayButton2]];
+
     
 //    //view2
 //    UIView *view2 = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 44)];
@@ -158,6 +176,7 @@ NSInteger currentIndex = 1;// 显示轨迹点数组中的某个轨迹点
 {
     [super viewDidDisappear:animated];
     [UIApplication sharedApplication].idleTimerDisabled = NO;
+    [self.historyTimer invalidate];
 }
 
 
@@ -201,6 +220,7 @@ NSInteger currentIndex = 1;// 显示轨迹点数组中的某个轨迹点
 // 向地图上添加位置和路线
 - (void)loadRoute
 {
+    NSLog(@"添加");
     // 当已经画出一半路线点时请求更多路线点
     if (currentIndex == roundf(_historyStates.count/2)) {
         [self getHistory];
@@ -267,7 +287,7 @@ NSInteger currentIndex = 1;// 显示轨迹点数组中的某个轨迹点
             _currentAnnotation.annotationID = @"NO";
 //            dateLabel.text = [NSString stringWithFormat:MyLocal(@"%@\n经度:%@ 纬度:%@ 速度:%@ KM/h"),aHistoryState.date,aHistoryState.longitude,aHistoryState.latitude,aHistoryState.speed];
 
-            dateLabel.text = [NSString stringWithFormat:MyLocal(@"%@  速度:%@ KM/h"),aHistoryState.date,aHistoryState.speed];
+            dateLabel.text = [NSString stringWithFormat:MyLocal(@"%@      速度:%@ KM/h"),aHistoryState.date,aHistoryState.speed];
 
             _currentAnnotation.imageName = @"mark2.png";
 //            [_historyMap removeAnnotations:_historyMap.annotations];
@@ -297,7 +317,9 @@ NSInteger currentIndex = 1;// 显示轨迹点数组中的某个轨迹点
 
 - (void)prepareForLoadRoute
 {
-    self.historyTimer = [NSTimer scheduledTimerWithTimeInterval:KInterval target:self selector:@selector(loadRoute) userInfo:nil repeats:YES];
+    [self.historyTimer  invalidate];
+    self.historyTimer = [NSTimer scheduledTimerWithTimeInterval:speed target:self selector:@selector(loadRoute) userInfo:nil repeats:YES];
+    [self.historyTimer fire];
 }
 
 - (void)back
@@ -375,9 +397,7 @@ NSInteger currentIndex = 1;// 显示轨迹点数组中的某个轨迹点
     }
     
     if ([[theWebService soapResults] length]> 0) {
-//        SBJsonParser *parser = [[SBJsonParser alloc] init];
-//        NSError *error = nil;
-//        id object = [parser objectWithString:[theWebService soapResults] error:&error];
+
         NSString *str = [theWebService soapResults];
         str = [str stringByReplacingOccurrencesOfString:@"	" withString:@""];
         id object = [str objectFromJSONString];
@@ -522,5 +542,26 @@ NSInteger currentIndex = 1;// 显示轨迹点数组中的某个轨迹点
     
     return endTimes - startTimes;
 }
+
+- (UIImage*)createImageWithColor: (UIColor*) color
+{
+    CGRect rect=CGRectMake(0,0, VIEW_WIDTH , 49);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextFillRect(context, rect);
+    UIImage *theImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return theImage;
+}
+
+-(void)slow {
+    NSLog(@"jiansu");
+    speed = .1;
+//    [self.historyTimer setValue:(NSTimeInterval).1 forKey:@"timeInterval"];
+    [self prepareForLoadRoute];
+    NSLog(@"改后:%f",self.historyTimer.timeInterval);
+}
+
 
 @end
