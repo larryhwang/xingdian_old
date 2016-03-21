@@ -14,7 +14,7 @@
 #import "CustomAnnotationView.h"
 
 #define KLine_Width 5
-#define KInterval   1.0
+#define KInterval   .5
 #define KSpace @"   "
 #define KSpeedPrefix  MyLocal(@"   速度:")
 #define KSpeedSuffix  @"KM/H"
@@ -114,11 +114,12 @@ NSInteger currentIndex = 1;// 显示轨迹点数组中的某个轨迹点
 //    [view2 addSubview:slider];
     
 //    [self.view addSubview:view2];
-    
-    if (BYT_IOS7) {
+    //   self.historyMap = [[MKMapView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width,self.view.frame.size.height-44)];
+    if (BYT_IOS7) { 
         self.historyMap = [[MKMapView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width,self.view.frame.size.height-44-20)];
     }else{
         self.historyMap = [[MKMapView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width,self.view.frame.size.height-44)];
+//           self.historyMap = [[MKMapView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width,self.view.frame.size.height-44)];
     }
     self.historyMap.delegate = self;
     MKCoordinateRegion region = {{0, 0}, {0.05, 0.05}};
@@ -202,9 +203,7 @@ NSInteger currentIndex = 1;// 显示轨迹点数组中的某个轨迹点
     if (currentIndex == roundf(_historyStates.count/2)) {
         [self getHistory];
     }
-    
 //    [self.historyMap removeAnnotations:self.historyMap.annotations];
-    
     // 创建CLLocationCoordinate2D数组用于画图
     CLLocationCoordinate2D *pointArray = malloc(sizeof(CLLocationCoordinate2D) * currentIndex);
     // 每次for循环获得起始点到当前显示点之间的所有轨迹点的经纬度，保存在pointArr中

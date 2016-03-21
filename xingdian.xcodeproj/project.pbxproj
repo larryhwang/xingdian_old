@@ -2492,6 +2492,11 @@
 			attributes = {
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = thinkrace;
+				TargetAttributes = {
+					29EA5BEF16B616DC0008A8D5 = {
+						DevelopmentTeam = NS9E2DSK82;
+					};
+				};
 			};
 			buildConfigurationList = 29EA5BEA16B616DC0008A8D5 /* Build configuration list for PBXProject "xingdian" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -3162,7 +3167,7 @@
 		29EA5C1616B616DC0008A8D5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: PEAK POINTS TECHNOLOGY CO., LTD. (NS9E2DSK82)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: PEAK POINTS TECHNOLOGY CO., LTD. (NS9E2DSK82)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";

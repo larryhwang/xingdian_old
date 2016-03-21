@@ -36,14 +36,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.isBackground = YES;
-        //获取Document文件夹下的数据库文件，没有则创建
-//        NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-//        NSString *dbPath = [docPath stringByAppendingPathComponent:@"user.db"];
-//        //获取数据库并打开
-//        self.DB  = [FMDatabase databaseWithPath:dbPath];
-//        if (![_DB open]) {
-//            [self showAlert:MyLocal(@"数据库打开失败") withTag:-1];
-//        }
     }
     return self;
 }
@@ -141,9 +133,9 @@
     
     [loginButton setTitle:MyLocal(@"登录") forState:UIControlStateNormal];
     [loginButton addTarget:self action:@selector(loginAction) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:loginButton];
-    
-    //记住密码 复选框
+   [self.view addSubview:loginButton];
+//    
+//    //记住密码 复选框
 //    self.checkBoxButton = [UIButton buttonWithType:UIButtonTypeCustom];
 //    if (BYT_ISIPHONE5) {
 //        self.checkBoxButton.frame = CGRectMake(10, 300, 34,35);
@@ -166,8 +158,8 @@
 //    checkBoxLabel.font = [UIFont systemFontOfSize:16.0f];
 //    checkBoxLabel.textColor = [UIColor colorWithRed:214/255.0f green:143/255.0f blue:69/255.0f alpha:1.0f];
 //    [self.view addSubview:checkBoxLabel];
-    
-    //自动登录 复选框
+//    
+// //   自动登录 复选框
 //    self.autoLoginButton = [UIButton buttonWithType:UIButtonTypeCustom];
 //    if (BYT_ISIPHONE5) {
 //        self.autoLoginButton.frame = CGRectMake(115, 300, 34, 35);
@@ -178,7 +170,7 @@
 //    [_autoLoginButton setImage:[UIImage imageNamed:@"disagree.png"] forState:UIControlStateNormal];
 //    [_autoLoginButton setImage:[UIImage imageNamed:@"agree.png"] forState:UIControlStateSelected];
 //    [self.view addSubview:_autoLoginButton];
-//    
+    
 //    UILabel *autoLoginLabel = [[UILabel alloc] init];
 //    if (BYT_ISIPHONE5) {
 //        autoLoginLabel.frame = CGRectMake(150,300, 120, 35);
@@ -191,7 +183,7 @@
 //    autoLoginLabel.textColor = [UIColor colorWithRed:214/255.0f green:143/255.0f blue:69/255.0f alpha:1.0f];
 //    [self.view addSubview:autoLoginLabel];
     
-    //客户体验
+   // 客户体验
     UIButton *tryButton = [UIButton buttonWithType:UIButtonTypeCustom];
 //    if (BYT_ISIPHONE5) {
         tryButton.frame = CGRectMake(20, loginButton.frame.size.height+loginButton.frame.origin.y+10, 90, 35);
@@ -425,6 +417,7 @@
 
                         TabbarViewController *home = [[TabbarViewController alloc] init];
                         home.hidesBottomBarWhenPushed = YES;
+                        //登陆成功后的主页面界面跳转
                         [self presentViewController:home animated:YES completion:nil];
                         
                         if (_hud) {
@@ -459,7 +452,8 @@
                         }
 //                        [self getDeviceList];
                     }
-                } else {
+                }//end_登陆成功
+                else {
                     if (_hud) {
                         [_hud hide:YES];
                     }
