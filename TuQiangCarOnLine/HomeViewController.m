@@ -101,7 +101,8 @@
     [_all setBackgroundImage:[UIImage imageNamed:@"l-1.png"] forState:UIControlStateNormal];
     [_all setBackgroundImage:[UIImage imageNamed:@"l-1.png"] forState:UIControlStateSelected];
     [_all.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:20]];
-    [_all setTitleColor:[UIColor colorWithRed:33/255.0f green:103/255.0f blue:184/255.0f alpha:1.0f] forState:UIControlStateSelected];
+    //[_all setTitleColor:[UIColor colorWithRed:33/255.0f green:103/255.0f blue:184/255.0f alpha:1.0f] forState:UIControlStateSelected];
+    [_all setTitleColor:mycolor forState:UIControlStateSelected];
     [_all setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [_all setTitle:[NSString stringWithFormat:MyLocal(@"全部 %d"), _allDevices.count] forState:UIControlStateNormal];
     [_all addTarget:self action:@selector(allButtonAction) forControlEvents:UIControlEventTouchUpInside];
@@ -117,7 +118,8 @@
     [_online setBackgroundImage:[UIImage imageNamed:@"l-1.png"] forState:UIControlStateNormal];
     [_online setBackgroundImage:[UIImage imageNamed:@"l-1.png"] forState:UIControlStateSelected];
     [_online.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:20]];
-    [_online setTitleColor:[UIColor colorWithRed:33/255.0f green:103/255.0f blue:184/255.0f alpha:1.0f] forState:UIControlStateSelected];
+//    [_online setTitleColor:[UIColor colorWithRed:33/255.0f green:103/255.0f blue:184/255.0f alpha:1.0f] forState:UIControlStateSelected];
+    [_online setTitleColor:mycolor forState:UIControlStateSelected];
     [_online setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [_online setTitle:[NSString stringWithFormat:MyLocal(@"在线 %d"), _onlineDevices.count] forState:UIControlStateNormal];
     [_online addTarget:self action:@selector(onlineButtonAction) forControlEvents:UIControlEventTouchUpInside];
@@ -133,12 +135,12 @@
     [_offline setBackgroundImage:[UIImage imageNamed:@"l-1.png"] forState:UIControlStateNormal];
     [_offline setBackgroundImage:[UIImage imageNamed:@"l-1.png"] forState:UIControlStateSelected];
     [_offline.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:20]];
-    [_offline setTitleColor:[UIColor colorWithRed:33/255.0f green:103/255.0f blue:184/255.0f alpha:1.0f] forState:UIControlStateSelected];
+//    [_offline setTitleColor:[UIColor colorWithRed:33/255.0f green:103/255.0f blue:184/255.0f alpha:1.0f] forState:UIControlStateSelected];
+    [_offline setTitleColor:mycolor forState:UIControlStateSelected];
     [_offline setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [_offline setTitle:[NSString stringWithFormat:MyLocal(@"离线 %d"), _offlineDevices.count] forState:UIControlStateNormal];
     [_offline addTarget:self action:@selector(offlineButtonAction) forControlEvents:UIControlEventTouchUpInside];
     [view2 addSubview:_offline];
-    
 //    self.naviView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 42, 106, 2)];
 //    self.naviView.image = [[UIImage imageNamed:@"d.png"] scaleToSize:CGSizeMake(106, 2)];
 //    [self.view addSubview:_naviView];

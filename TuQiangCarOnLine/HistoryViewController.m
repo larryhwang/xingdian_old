@@ -595,7 +595,7 @@ NSInteger currentIndex = 1;// 显示轨迹点数组中的某个轨迹点
 
 -(void)slow {
     NSLog(@"jiansu");
-    speed = .1;
+    speed = .5;
     [self prepareForLoadRoute];
     NSLog(@"改后:%f",self.historyTimer.timeInterval);
 }

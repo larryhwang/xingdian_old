@@ -78,11 +78,7 @@
     UINavigationController *mapNav = [[UINavigationController alloc] initWithRootViewController:map];
     
     
-    
-    
-    
 
-    
     if (BYT_IOS7) {
         mapNav.navigationBar.barTintColor = mycolor;
         mapNav.navigationBar.translucent = NO;
@@ -93,6 +89,7 @@
         [mapNav.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"map.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"map.png"]];// 设置tabBarItem选中图片
     }
     [mapNav.tabBarController.tabBar   setTintColor:[UIColor whiteColor]];
+    [mapNav.tabBarItem setTitle:MyLocal(@"多车监控")];
 
     
     
