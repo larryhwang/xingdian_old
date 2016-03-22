@@ -2494,7 +2494,7 @@
 				ORGANIZATIONNAME = thinkrace;
 				TargetAttributes = {
 					29EA5BEF16B616DC0008A8D5 = {
-						DevelopmentTeam = YTPF55AM99;
+						DevelopmentTeam = NS9E2DSK82;
 					};
 				};
 			};
@@ -3185,7 +3185,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.peakpoints.xingdian;
 				PRODUCT_NAME = xingdian;
 				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "330e3f00-85e9-4b3c-9005-ec382cf36083";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "db79b42e-9108-408d-9c60-c447eb9d74c7";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = "armv7 armv7s arm64";

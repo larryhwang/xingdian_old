@@ -50,9 +50,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSDictionary *attriDicGrayColor  = @{UITextAttributeTextColor:[UIColor redColor]};
-    NSDictionary *attriDic1WhiteColor = @{UITextAttributeTextColor:[UIColor whiteColor]};
-  //  [self.tabBarItem setTitleTextAttributes:attriDicGrayColor forState:UIControlStateNormal];
+
     
     IOS7;
 

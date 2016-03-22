@@ -91,7 +91,7 @@ NSInteger currentIndex = 1;// 显示轨迹点数组中的某个轨迹点
     //变速按钮
     _changePlayButton2 = [UIButton buttonWithType:UIButtonTypeCustom];
     _changePlayButton2.frame = CGRectMake(0, 0, 30,25);
-    [_changePlayButton2 setBackgroundImage:[UIImage imageNamed:@"bitian"] forState:UIControlStateNormal];
+    [_changePlayButton2 setBackgroundImage:[UIImage imageNamed:@"ic_speed"] forState:UIControlStateNormal];
     _changePlayButton2.tag = 1002;
     [_changePlayButton2 setBackgroundImage:[UIImage imageNamed:@"cv-1.png"] forState:UIControlStateSelected];
     [_changePlayButton2 addTarget:self action:@selector(SpeedModify) forControlEvents:UIControlEventTouchUpInside];
