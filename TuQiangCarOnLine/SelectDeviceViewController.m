@@ -39,7 +39,7 @@
             [_rightButton setBackgroundImage:[UIImage imageNamed:@"7.png"] forState:UIControlStateNormal];
             //    [_rightButton setBackgroundImage:[UIImage imageNamed:@"7.png"] forState:UIControlStateSelected];
             [_rightButton addTarget:self action:@selector(rightButtonAction) forControlEvents:UIControlEventTouchUpInside];
-            self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:_rightButton];
+         //   self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:_rightButton];
         }
     }
     return self;

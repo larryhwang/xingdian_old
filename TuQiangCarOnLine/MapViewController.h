@@ -14,11 +14,11 @@
 
 @interface MapViewController : UIViewController <MKMapViewDelegate>
 
-@property (strong, nonatomic) MKMapView *LocMapView;
+@property (strong, nonatomic) MKMapView      *LocMapView;
 @property (strong, nonatomic) NSMutableArray *deviceArray;
 @property (strong, nonatomic) NSMutableArray *humanLocLatLngArray;
-@property (strong, nonatomic) FMDatabase *DB;
-@property (strong, nonatomic) MBProgressHUD *hud;
-@property (nonatomic) NSInteger currentShowBubbleIndex;
+@property (strong, nonatomic) FMDatabase     *DB;
+@property (strong, nonatomic) MBProgressHUD  *hud;
+@property (nonatomic        ) NSInteger      currentShowBubbleIndex;
 
 @end

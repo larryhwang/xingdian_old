@@ -65,7 +65,7 @@
     
     [[UITabBarItem appearance] setTitleTextAttributes:@{UITextAttributeTextColor:mycolor} forState:UIControlStateSelected];
     
-
+   // self.navigationItem.rightBarButtonItem
     
     self.view.backgroundColor = [UIColor whiteColor];
     

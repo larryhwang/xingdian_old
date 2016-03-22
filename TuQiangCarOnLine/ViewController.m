@@ -594,7 +594,7 @@
     WebServiceParameter *loginParameter1 = [WebServiceParameter newWithKey:@"Name" andValue:_userName1];
     WebServiceParameter *loginParameter2 = [WebServiceParameter newWithKey:@"Pass" andValue:_password1];
     WebServiceParameter *loginParameter3 = [WebServiceParameter newWithKey:@"LoginType" andValue:@"0"];
-    WebServiceParameter *loginParameter4 = [WebServiceParameter newWithKey:@"ParamList" andValue:@"1,3"];
+    WebServiceParameter *loginParameter4 = [WebServiceParameter newWithKey:@"ParamList" andValue:@"1,1"]; //1推送   1 appid
     NSArray *parameter = @[loginParameter1, loginParameter2, loginParameter3, loginParameter4];
     // webservice请求并获得结果
     webService.webServiceParameter = parameter;

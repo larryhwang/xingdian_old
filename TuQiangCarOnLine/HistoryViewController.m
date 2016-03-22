@@ -17,26 +17,34 @@
 #define KInterval   .5  //
 
 
-#define KSpace @"   "
-#define KSpeedPrefix  MyLocal(@"   速度:")
-#define KSpeedSuffix  @"KM/H"
-#define KSpacePrefix  @"   "
-#define KLicencePlatePrefix MyLocal(@"   车牌:")
+#define KSpace @"                      "
+#define KSpeedPrefix  MyLocal(@"       速度:")
+#define KSpeedSuffix                   @"KM/H"
+#define KSpacePrefix  @"               "
+#define KLicencePlatePrefix MyLocal(@" 车牌:")
 
-@interface HistoryViewController (){
+
+typedef NS_ENUM(NSInteger, PlaySpeed) {
+    pLow    =0,
+    pNormal =1,
+    pFast   =2
+};
+
+@interface HistoryViewController ()<UIAlertViewDelegate>{
     //日期
     UILabel *dateLabel;
     UIProgressView *processStatus;
     NSTimeInterval speed;
 }
-@property (strong, nonatomic) NSString *annoStartTime;
+
+@property (strong, nonatomic) NSString               *annoStartTime;
 @property (assign, nonatomic) CLLocationCoordinate2D annoCoordinate;
-@property (assign, nonatomic) NSInteger isStopStartId;
-@property (assign, nonatomic) NSInteger isStopEndId;
-@property (strong, nonatomic) CustomAnnotation *currentAnnotation;
-@property (strong, nonatomic)  UIButton *changePlayButton;
-@property (strong, nonatomic)  UIButton *changePlayButton2;
-@property (strong, nonatomic)  UIButton *changePlayButton3;
+@property (assign, nonatomic) NSInteger              isStopStartId;
+@property (assign, nonatomic) NSInteger              isStopEndId;
+@property (strong, nonatomic) CustomAnnotation       *currentAnnotation;
+@property (strong, nonatomic) UIButton               *changePlayButton;
+@property (strong, nonatomic) UIButton               *changePlayButton2;
+@property (strong, nonatomic) UIButton               *changePlayButton3;
 
 @end
 
@@ -59,7 +67,7 @@ NSInteger currentIndex = 1;// 显示轨迹点数组中的某个轨迹点
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    speed = 2;
+    speed = .7;  //速度初始化
     
     IOS7;
     
@@ -83,21 +91,16 @@ NSInteger currentIndex = 1;// 显示轨迹点数组中的某个轨迹点
     //变速按钮
     _changePlayButton2 = [UIButton buttonWithType:UIButtonTypeCustom];
     _changePlayButton2.frame = CGRectMake(0, 0, 30,25);
-    [_changePlayButton2 setBackgroundImage:[self createImageWithColor:[UIColor redColor]] forState:UIControlStateNormal];
+    [_changePlayButton2 setBackgroundImage:[UIImage imageNamed:@"bitian"] forState:UIControlStateNormal];
     _changePlayButton2.tag = 1002;
     [_changePlayButton2 setBackgroundImage:[UIImage imageNamed:@"cv-1.png"] forState:UIControlStateSelected];
-    [_changePlayButton2 addTarget:self action:@selector(slow) forControlEvents:UIControlEventTouchUpInside];
+    [_changePlayButton2 addTarget:self action:@selector(SpeedModify) forControlEvents:UIControlEventTouchUpInside];
     
     
     
-    //变速按钮
-    _changePlayButton3 = [UIButton buttonWithType:UIButtonTypeCustom];
-    _changePlayButton3.frame = CGRectMake(0, 0, 30,25);
-    [_changePlayButton3 setBackgroundImage:[self createImageWithColor:[UIColor redColor]] forState:UIControlStateNormal];
-    _changePlayButton2.tag = 1002;
-    [_changePlayButton3 setBackgroundImage:[UIImage imageNamed:@"cv-1.png"] forState:UIControlStateSelected];
+
     
-    self.navigationItem.rightBarButtonItems = @[[[UIBarButtonItem alloc] initWithCustomView:_changePlayButton],[[UIBarButtonItem alloc]initWithCustomView:_changePlayButton2],[[UIBarButtonItem alloc] initWithCustomView:_changePlayButton3]];
+    self.navigationItem.rightBarButtonItems = @[[[UIBarButtonItem alloc] initWithCustomView:_changePlayButton],[[UIBarButtonItem alloc]initWithCustomView:_changePlayButton2]];
 
     
 //    //view2
@@ -174,7 +177,7 @@ NSInteger currentIndex = 1;// 显示轨迹点数组中的某个轨迹点
     dateLabel.font = [UIFont systemFontOfSize:13.0];
     dateLabel.numberOfLines = 0;
     [self.view addSubview:dateLabel];
-    [self.view addSubview:processStatus];
+  //  [self.view addSubview:processStatus];
     
 //    UIButton *changeMapTypeButton = [UIButton buttonWithType:UIButtonTypeCustom];
 //    changeMapTypeButton.frame = CGRectMake(0, 60, 26, 26);
@@ -346,9 +349,6 @@ NSInteger currentIndex = 1;// 显示轨迹点数组中的某个轨迹点
     currentIndex++; // 下次画线时点的数量加1
     
     [processStatus setProgress:(currentIndex*1.0 /(_historyStates.count * 1.0)) animated:YES];
-    NSLog(@"B:%d",_historyStates.count);
-    NSLog(@"C:%d",currentIndex);
-     NSLog(@"AA:%f",(currentIndex*1.0 /(_historyStates.count * 1.0)) );
 }
 
 #pragma mark - Targeta
@@ -566,7 +566,31 @@ NSInteger currentIndex = 1;// 显示轨迹点数组中的某个轨迹点
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    [self back];
+    NSInteger index =buttonIndex;
+    if (alertView.tag ==0) {
+        switch (index) {
+            case 0:
+                [self changeSpeed:pFast];
+                NSLog(@"Al 0");
+                break;
+            case 1:
+                [self changeSpeed:pNormal];
+                NSLog(@"Al 1");
+                break;
+            case 2:
+                [self changeSpeed:pLow];
+                NSLog(@"Al 2");
+                break;
+            default:
+                break;
+        }
+    } else {
+
+        [self back];
+
+    }
+    
+
 }
 
 -(NSInteger)returnDate:(NSString *)startDate endDate:(NSString *)endDate{
@@ -593,12 +617,52 @@ NSInteger currentIndex = 1;// 显示轨迹点数组中的某个轨迹点
     return theImage;
 }
 
--(void)slow {
+-(void)changeSpeed:(PlaySpeed) pSpeed {
     NSLog(@"jiansu");
-    speed = .5;
+
+    switch (pSpeed) {
+        case 0:
+            //慢
+            speed = 1 ;
+            break;
+        case 1:
+            //正常
+            speed = .7;
+               break;
+        case 2:
+               //快
+            speed =  .4;
+            break;
+        default:
+            break;
+    }
+
     [self prepareForLoadRoute];
     NSLog(@"改后:%f",self.historyTimer.timeInterval);
 }
+
+-(void)SpeedModify {
+    
+//    UIAlertView *AW = [[UIAlertView alloc]initWithTitle:nil
+//                                                message:@"播放速度"
+//                                               delegate:self
+//                                      cancelButtonTitle:@"取消",
+//                                      otherButtonTitles:@"快",@"正常",@"慢",nil];
+    
+    
+    UIAlertView *AW = [[UIAlertView alloc]initWithTitle:nil
+                                                message:@"播放速度"
+                                               delegate:self
+                                      cancelButtonTitle:nil
+                                      otherButtonTitles:@"快",@"正常",@"慢", nil];
+    AW.tag          = 0;
+    [AW show];
+}
+
+
+
+
+
 
 
 @end

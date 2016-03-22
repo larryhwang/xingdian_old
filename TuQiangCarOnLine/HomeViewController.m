@@ -152,6 +152,7 @@
     }
     self.table.delegate = self;
     self.table.dataSource = self;
+    self.table.backgroundColor = [UIColor groupTableViewBackgroundColor];
     //隐藏cell的线条
     _table.separatorStyle = UITableViewCellSeparatorStyleNone;
 

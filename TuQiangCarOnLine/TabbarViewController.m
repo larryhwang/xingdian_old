@@ -42,10 +42,11 @@
     self.tabbarController = [[UITabBarController alloc] init];
     self.tabbarController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     [[UITabBarItem appearance] setTitleTextAttributes:@{UITextAttributeTextColor:[UIColor grayColor]} forState:UIControlStateNormal];
-    [[UITabBarItem appearance]setTitleTextAttributes:@{UITextAttributeTextColor:[UIColor whiteColor]} forState:UIControlStateSelected];
+    [[UITabBarItem appearance]setTitleTextAttributes:@{UITextAttributeTextColor:mycolor} forState:UIControlStateSelected];
     double version = [[UIDevice currentDevice].systemVersion doubleValue];//判定系统版本
     if(version >= 5.0f){
-        [_tabbarController.tabBar setBackgroundImage:[self createImageWithColor:mycolor]];// 设置tabBar背景
+      //  [_tabbarController.tabBar setBackgroundImage:[self createImageWithColor:mycolor]];// 设置tabBar背景
+        [_tabbarController.tabBar setBackgroundImage:[self createImageWithColor:[UIColor whiteColor]]];// 设置tabBar背景
         //_tabbarController.tabBar.selectionIndicatorImage = [[UIImage imageNamed:@"7-1.png"] scaleToSize:CGSizeMake(76, 45)];// 设置tabBarItem选中的背景
     } else {
         _tabbarController.tabBar.layer.contents = (id)[[UIImage imageNamed:@"b.png"] scaleToSize:CGSizeMake(320, 49)].CGImage;
@@ -57,12 +58,13 @@
     // 首页
     HomeViewController *home = [[HomeViewController alloc] init];
     UINavigationController *homeNav = [[UINavigationController alloc] initWithRootViewController:home];
+
   //  homeNav.navigationItem.rightBarButtonItem
     
     if (BYT_IOS7) {
         homeNav.navigationBar.barTintColor = mycolor;
         homeNav.navigationBar.translucent = NO;
-        homeNav.tabBarItem = [[UITabBarItem alloc]initWithTitle:MyLocal(@"车辆列表") image:[[UIImage imageNamed:@"ic_car.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[[UIImage imageNamed:@"ic_car.png"]imageWithRenderingMode:UIImageRenderingModeAutomatic]];
+        homeNav.tabBarItem = [[UITabBarItem alloc]initWithTitle:MyLocal(@"车辆列表") image:[[UIImage imageNamed:@"ic_car.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[[UIImage imageNamed:@"ic_car_checked"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
 
         
         
@@ -82,13 +84,13 @@
     if (BYT_IOS7) {
         mapNav.navigationBar.barTintColor = mycolor;
         mapNav.navigationBar.translucent = NO;
-        mapNav.tabBarItem = [[UITabBarItem alloc]initWithTitle:MyLocal(@"多车监控") image:[[UIImage imageNamed:@"ic_morecar.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[[UIImage imageNamed:@"ic_morecar.png"]imageWithRenderingMode:UIImageRenderingModeAutomatic]];
+        mapNav.tabBarItem = [[UITabBarItem alloc]initWithTitle:MyLocal(@"多车监控") image:[[UIImage imageNamed:@"ic_morecar.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[[UIImage imageNamed:@"ic_morecar_checked"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     }else{
         [mapNav.navigationBar setBackgroundImage:[[self createImageWithColor:mycolor] scaleToSize:CGSizeMake(320, 44)] forBarMetrics:UIBarMetricsDefault];
         mapNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:MyLocal(@"多车监控") image:[UIImage imageNamed:@"map.png"] tag:1];
         [mapNav.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"map.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"map.png"]];// 设置tabBarItem选中图片
     }
-    [mapNav.tabBarController.tabBar   setTintColor:[UIColor whiteColor]];
+    [mapNav.tabBarController.tabBar   setTintColor:[UIColor blackColor    ]];
     [mapNav.tabBarItem setTitle:MyLocal(@"多车监控")];
 
     
@@ -101,7 +103,7 @@
     if (BYT_IOS7) {
         allAlarmsNav.navigationBar.barTintColor = mycolor;
         allAlarmsNav.navigationBar.translucent = NO;
-        allAlarmsNav.tabBarItem = [[UITabBarItem alloc]initWithTitle:MyLocal(@"车辆报警") image:[[UIImage imageNamed:@"ic_warm.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[[UIImage imageNamed:@"ic_warm.png"]imageWithRenderingMode:UIImageRenderingModeAutomatic]];
+        allAlarmsNav.tabBarItem = [[UITabBarItem alloc]initWithTitle:MyLocal(@"车辆报警") image:[[UIImage imageNamed:@"ic_warm.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[[UIImage imageNamed:@"ic_warm_checked.png"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     }else{
         [allAlarmsNav.navigationBar setBackgroundImage:[[self createImageWithColor:mycolor] scaleToSize:CGSizeMake(320, 44)] forBarMetrics:UIBarMetricsDefault];
         allAlarmsNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:MyLocal(@"车辆报警") image:[UIImage imageNamed:@"warn.png"] tag:2];
@@ -132,7 +134,7 @@
     
     [self.view addSubview:_tabbarController.view];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeView:) name:@"Tiaozhuan" object:nil];
-    [self.tabbarController.tabBar     setTintColor:[UIColor whiteColor]];
+
 }
 
 -(void)changeView:(NSNotification *)not
